@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+{% for series in serie %}
+<div class="container-fluid vh-80 ">
+  <div class="row d-flex justify-content-center  align-items-center h-100  ">
+    <div class="col-2">
+      <img class="pl-5" src="../{{series.affiche}}">
+
+    </div>
+    <div class="col-5">
+      <h2 class="text-uppercase">{{series.titre}}</h2>
+        <p>réalise par : {{series.realisateur}} | date de sortie : {{series.dateAt|date("m/d/Y", false) }}</p>
+      <button class="btn btn-dark" data-toggle="modal" data-target="#bandeAnnonce">voir la bande annonce</button>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="bandeAnnonce" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+
+  
+      <div class="modal-body">
+         <div class="modal-body embed-responsive embed-responsive-16by9">
+     <iframe class="embed-responsive-item" width="560" height="315" allowfullscreen  src="{{series.bandeannonce | raw }}" ></iframe>
+    </div>
+      </div>
+   
+    </div>
+  </div>
+</div>
+
+{% endfor %}
+{% for series in serie %}
+{{dump(series.Acteurs)}}
+
+{% endfor %}
+{% endblock %}
+  

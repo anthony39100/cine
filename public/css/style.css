@@ -1,0 +1,66 @@
+@font-face {
+    font-family: "Calibri";
+    src: url("/font/calibri/calibril.ttf") format("ttf"),
+           
+   }
+
+/* font */
+.calibri{
+    font-family: "Calibri";
+}
+li>a{
+    color: #b3b2b2;
+}
+/* endfont */
+.text-episode{
+    max-width: 454px;
+    font-size: 21px;
+}
+.boutton-controlle{
+    margin-right: 30px;
+}
+.contenu-episode{
+    max-width: 434px;
+}
+.date-serie{
+    font-size: 20px;
+}
+.text{
+    color: white;
+}
+.bg-episode{
+    background-color: #b51c1c;
+    
+}
+.text-description{
+    color: #dcdcdc;
+}
+.populaire{
+    max-width: 1240px !important;
+}
+.films{
+    min-height: 1130px;
+}
+.justify-content-evenly{
+    justify-content: space-evenly;
+}
+.form-bg{
+    background-color: #2a292e;
+    height: 440px;
+}
+.form-titre{
+    max-width: 462px;
+}
+.vh-80{
+    height: 80vh;
+}
+input[type='text']{
+    background-color: #403f44;
+    border: none;
+}
+.footer-container{
+    min-height: 258px;
+}
+.cursor{
+    cursor: pointer;
+}

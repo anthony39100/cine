@@ -1,0 +1,96 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+<header>
+    <div class="container-fluid " style="background-image:url({{asset('images/header.jpg')}}); height:758px; background-position:left;background-size:cover;">
+    <div class="row h-100">
+    <div class="col   d-flex flex-column justify-content-center align-items-end h-100 mr-5">
+    <div class="">
+    <p><img src="{{asset('images/daredevil-logo.png')}}" alt="image de daredevil"></p>
+    <p class="text-episode calibri text-description mt-5">
+        Matt Murdock, with his other senses superhumanly 
+        enhanced, fights crime as a blind Lawyer 
+        by day, and vigilante by night.
+      
+    </p>
+    <p class="date-serie"><a href="categorie " class="text-white calibri">54mn | Action, Crime, Drama | TV Series (2015-)</a></p>
+    <p class="text-right  contenu-episode  boutton-controlle "><img class="cursor controlle-plus" src="control-episode/controler+.png" alt="boutton de controlle + de l'episode"></p>
+    <p class="text-right  contenu-episode "><button data-episode="1" type="button" class="btn bg-episode pt-3 pb-3 text-white text-uppercase episode">review episode <span class="ml-2 numero-episode">1</span></button></p>
+    <p class="text-right  contenu-episode boutton-controlle" ><img class="controllerMoins cursor" src="control-episode/controler-.png" alt="boutton de controlle + de l'episode"></p>
+    </div>
+    </div>
+    </div>
+
+    </div>
+</header>
+
+<div class="container-fluid pl-5  no-gutters films d-flex flex-column justify-content-around">
+
+ <div class="row d-flex no-gutters  populaire justify-content-evenly  ">
+        <div class="col-12">
+        
+  
+
+            <h2 class="">films populaire</h2> 
+        </div>
+      {% for populaires in populaire %}
+    <div class=" col-2  mt-3  d-flex  ">
+    
+  
+        <a href="films/{{populaires.id}}"><img class="img-fluid  "  src="{{populaires.affiche}}" alt='affiche du film {{populaires.titre}}'></a>
+  
+    </div>
+      {% endfor %}
+    </div>
+    <div class="row d-flex no-gutters   populaire justify-content-evenly">
+        <div class="col-12">
+        <h2>Popular TV Shows</h2>
+     </div>
+        {% for series in serie %}
+        <div class="col  mt-3 d-flex  ">
+    
+           <a href="serie/{{series.id}}"> <img class=""  src="{{series.affiche}}" alt='affiche du film {{series.titre}}'></a>
+
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<div class="container-fluid d-flex justify-content-center align-items-center form-bg">
+<form ="container d-flex align-items-center h-100">
+  <div class="row d-flex  justify-content-center">
+  <div class="col-8">
+  <h2 class="text-center text-white w-100">Get the movie & TV Shows straight
+ in your inbox each week</h2>
+  </div>
+  </div>
+  <div class="row d-flex mt-5  justify-content-center">
+    <div class="col-4">
+      <input type="text" class="form-control w-100 pt-3 pb-3" placeholder="First name">
+    </div>
+    <div class="col-4 ">
+      <input type="text" class="form-control pt-3 pb-3" placeholder="Last name">
+    </div>
+    </div>
+    <div class="row  d-flex mt-5  justify-content-center">
+    <div class="col-">
+    <button class="btn btn-success pr-5 pl-5">Subscribe</button>
+    </div>
+    </div>
+  </div>
+</form>
+
+</div>
+<footer class="container-fluid footer-container d-flex justify-content-center align-items-center">
+<div class="container  h-100 ">
+<div class="row align-items-center  d-flex h-100">
+<div class="col-12">
+      <p class="text-center"><a href="/"> <img class="pl-5" src="{{asset('images/Movies-logo.jpg')}}" alt="Example"/></a></p>
+    <p class="text-center">2016 Movies . All Rights Reserved</p>
+    <p class="text-center">Terms of service       Privasy Policy </p>
+</div>
+</div>
+</div>
+
+</footer>
+
+{% endblock %}
