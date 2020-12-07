@@ -54,10 +54,20 @@ class Acteur
      */
     private $imageFile;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Role::class, mappedBy="Actor")
+     */
+    private $Actor;
+
+
+
+
+
 
     public function __construct()
     {
         $this->Acteurs = new ArrayCollection();
+        $this->Actor = new ArrayCollection();
     }
 
 
@@ -171,6 +181,34 @@ class Acteur
         return $this->imageFile;
     }
 
+    /**
+     * @return Collection|Role[]
+     */
+    public function getActor(): Collection
+    {
+        return $this->Actor;
+    }
+
+    public function addActor(Role $actor): self
+    {
+        if (!$this->Actor->contains($actor)) {
+            $this->Actor[] = $actor;
+            $actor->addActor($this);
+        }
+
+        return $this;
+    }
+
+    public function removeActor(Role $actor): self
+    {
+        if ($this->Actor->removeElement($actor)) {
+            $actor->removeActor($this);
+        }
+
+        return $this;
+    }
+
+ 
 
 
 }

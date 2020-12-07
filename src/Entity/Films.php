@@ -59,9 +59,18 @@ class Films
      */
     private $Acteurs;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Role::class, mappedBy="Films")
+     */
+    private $Movie;
+
+    
+  
+
     public function __construct()
     {
         $this->Acteurs = new ArrayCollection();
+        $this->Movie = new ArrayCollection();
     }
 
 
@@ -204,9 +213,32 @@ class Films
         return $this;
     }
 
+    /**
+     * @return Collection|Role[]
+     */
+    public function getMovie(): Collection
+    {
+        return $this->Movie;
+    }
 
+    public function addMovie(Role $movie): self
+    {
+        if (!$this->Movie->contains($movie)) {
+            $this->Movie[] = $movie;
+            $movie->addFilm($this);
+        }
 
+        return $this;
+    }
 
+    public function removeMovie(Role $movie): self
+    {
+        if ($this->Movie->removeElement($movie)) {
+            $movie->removeFilm($this);
+        }
+
+        return $this;
+    }
 
 
   
