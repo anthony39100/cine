@@ -54,11 +54,7 @@ class Acteur
      */
     private $imageFile;
 
-    /**
-     * @ORM\Column(type="datetime")
-     * @var \DateTime
-     */
-    private $updatedAt;
+
     public function __construct()
     {
         $this->Acteurs = new ArrayCollection();
@@ -157,16 +153,16 @@ class Acteur
         return $this;
     }
 
-    public function setImageFile(File $image = null)
+    public function setImageFile(File $photo = null)
     {
-        $this->imageFile = $image;
+        $this->imageFile = $photo;
 
         // VERY IMPORTANT:
         // It is required that at least one field changes if you are using Doctrine,
         // otherwise the event listeners won't be called and the file is lost
-        if ($image) {
+        if ($photo) {
             // if 'updatedAt' is not defined in your entity, use another property
-            $this->updatedAt = new \DateTime('now');
+            $this->dateAnniversaire = new \DateTime('now');
         }
     }
 

@@ -7,6 +7,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 class ActeurCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
@@ -21,11 +22,11 @@ class ActeurCrudController extends AbstractCrudController
             
             TextField::new('name'),
             TextEditorField::new('description'),
-            ImageField::new('imageFile')
+            ImageField::new('photo')
             ->setBasePath("%photo_images%")
-            ->setFormType(VichyImageType::class)
-           
+            ->SetUploadDir("public/uploads/photo")
             ,
+            DateField::new("dateAnniversaire")
         ];
     }
     
